@@ -344,7 +344,7 @@ st.markdown("""
     left: -200px;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(0,255,200,0.15), transparent);
+    # background: radial-gradient(circle, rgba(0,255,200,0.15), transparent);
     filter: blur(120px);
     z-index: -1;
 }
