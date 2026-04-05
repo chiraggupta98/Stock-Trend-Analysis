@@ -570,7 +570,44 @@ div[data-baseweb="select"] > div {
 }
 </style>
 """, unsafe_allow_html=True)
-        stock = st.selectbox(" Stock Symbol", ("AAPL", "GOOG", "MSFT", "TSLA", "AMZN", "NVDA", "META", "NFLX", "AMD", "CRM", "ORCL", "INTC", "CSCO", "ADBE", "PYPL", "UBER", "SPOT", "SQ", "SHOP", "COIN"), label_visibility="collapsed")
+        stock = st.selectbox(" Stock Symbol", (" "AAPL","MSFT","GOOG","AMZN","META","NVDA","TSLA",
+        "ORCL","ADBE","CRM","INTC","CSCO","AMD","IBM",
+
+        # Finance
+        "JPM","BAC","WFC","C","GS","MS","AXP","BLK","SCHW",
+
+        # Consumer & Retail
+        "WMT","COST","TGT","HD","LOW","NKE","SBUX","MCD",
+        "KO","PEP","PG","UL","DIS",
+
+        # E-commerce / Internet
+        "NFLX","UBER","LYFT","SHOP","EBAY","SPOT","SNAP","PINS",
+
+        # Semiconductor
+        "TSM","QCOM","AVGO","TXN","ASML","MU","LRCX","AMAT",
+
+        # Energy
+        "XOM","CVX","BP","SHEL","TOT","COP","SLB",
+
+        # Healthcare
+        "JNJ","PFE","MRK","ABBV","TMO","DHR","BMY","LLY",
+
+        # Crypto-related / FinTech
+        "COIN","SQ","PYPL","ROBINHOOD","SOFI",
+
+        # Automobile
+        "F","GM","RIVN","LCID","NIO","XPEV","BYDDF",
+
+        # ETFs (optional but useful)
+        "SPY","QQQ","DIA","VTI","ARKK",
+
+        # Popular Global Stocks
+        "BABA","JD","TCEHY","SONY","NTDOY",
+
+        # Indian Stocks (if you want NSE/BSE via Yahoo Finance)
+        "RELIANCE.NS","TCS.NS","INFY.NS","HDFCBANK.NS",
+        "ICICIBANK.NS","SBIN.NS","BHARTIARTL.NS",
+        "LT.NS","HINDUNILVR.NS","ITC.NS""), label_visibility="collapsed")
     
     # Load data immediately after stock selection
     df = load_data(stock)
