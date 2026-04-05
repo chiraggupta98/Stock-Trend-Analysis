@@ -9,8 +9,6 @@ import numpy as np
 import os
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import MinMaxScaler
-import os
-import base64
 import streamlit as st
 
 # Inject CSS to hide Streamlit's default header and menu
@@ -21,55 +19,7 @@ header {visibility: hidden;}
 </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-st.markdown("""
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-""", unsafe_allow_html=True)
-def set_bg_image(image_file, overlay=True):
-    current_dir = os.path.dirname(__file__)
-    image_path = os.path.join(current_dir, image_file)
-
-    with open(image_path, "rb") as f:
-        data = f.read()
-
-    encoded = base64.b64encode(data).decode()
-
-    # 👇 Overlay control
-    overlay_css = ""
-    if overlay:
-        overlay_css = """
-        .stApp::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-           background: rgba(13, 21, 31, 25);
-            z-index: 0;
-        }
-        """
-
-    page_bg = f"""
-    <style>
-    .stApp {{
-        background-image: url("data:image/png;base64,{encoded}");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }}
-
-    {overlay_css}
-
-    .stApp > * {{
-        position: relative;
-        z-index: 1;
-    }}
-    </style>
-    """
-
-    st.markdown(page_bg, unsafe_allow_html=True) 
-    
+# -------------------------------------------------------------------
 # PAGE CONFIG
 # -------------------------------------------------------------------
 st.set_page_config(
@@ -122,7 +72,7 @@ st.markdown("""
     
     /* Button styling */
     .stButton>button {
-        background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+        # background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
         color: white;
         border: none;
         border-radius: 25px;
@@ -201,15 +151,63 @@ st.markdown("""
         border-radius: 10px;
         margin-top: 30px;
     }
-</style>
-""", unsafe_allow_html=True)
-st.markdown("""
-<style>
-.stApp {
-    background-color: rgba(13,31,31,35);  /* light green */
+
+    /* Login Header */
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
 }
+
+.login-header h1 {
+    font-size: 48px;
+    font-weight: 800;
+    background: linear-gradient(90deg,#00F5A0,#00D9F5,#7B61FF,#FF4D6D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 5px;
+}
+
+.login-header p {
+    color: #9aa4b2;
+    font-size: 18px;
+}
+
+/* Login Card */
+[data-testid="stForm"] {
+    background: rgba(255,255,255,0.04);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* Input fields */
+.stTextInput input {
+    background-color: #262730 !important;
+    border-radius: 10px !important;
+    border: 1px solid #3a3f5c !important;
+    color: white !important;
+}
+
+/* Login button */
+.stButton > button {
+    # background: linear-gradient(90deg,#ff6b6b,#4ecdc4);
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    padding: 10px 25px;
+    transition: 0.3s;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
 </style>
 """, unsafe_allow_html=True)
+
 # -------------------------------------------------------------------
 # USER DATABASE
 # -------------------------------------------------------------------
@@ -238,15 +236,73 @@ if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 if "page" not in st.session_state:
     st.session_state.page = "login"
+st.markdown("""
+<style>
 
+/* FULL SCREEN BACKGROUND */
+.stApp {
+    background: linear-gradient(135deg, #0f172a, #020617, #020617);
+    background-attachment: fixed;
+}
+
+/* optional glow effect */
+.stApp::before {
+    content: "";
+    position: fixed;
+    top: -200px;
+    left: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0,255,200,0.15), transparent);
+    filter: blur(120px);
+    z-index: -1;
+}
+
+.stApp::after {
+    content: "";
+    position: fixed;
+    bottom: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(123,97,255,0.15), transparent);
+    filter: blur(120px);
+    z-index: -1;
+}
+/* Create account button */
+.create-btn button {
+    background: linear-gradient(90deg,#7B61FF,#00D9F5);
+    color: white;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+}
+
+.create-btn button:hover {
+    background: linear-gradient(90deg,#6a4cff,#00bcd4);
+}
+
+/* Back to login button */
+.back-btn button {
+    background: linear-gradient(90deg,#FF4D6D,#FF9800);
+    color: white;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+}
+
+.back-btn button:hover {
+    background: linear-gradient(90deg,#ff2d55,#ff6a00);
+}
+</style>
+""", unsafe_allow_html=True)
 # -------------------------------------------------------------------
 # MODERN LOGIN PAGE
 # -------------------------------------------------------------------
 def login_page():
-    set_bg_image("image3.jpg",overlay=False)
-    st.markdown("<h1 style='text-align:center;'>🔐 Welcome to Stock Trend Analysis WebApp</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align:center;'>Stock Trend Analysis Pro</h1>", unsafe_allow_html=True)
     # st.markdown("<h4 style='text-align:center;color:red;'>Login To  Stock Trend Analysis WebApp</h4>", unsafe_allow_html=True)
-
+    
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.markdown("### Login")
@@ -266,7 +322,7 @@ def login_page():
 
         st.markdown("---")
         st.markdown("Don't have an account?")
-        if st.button("📝 Create New Account"):
+        if st.button("Create New Account"):
             st.session_state.page = "signup"
             st.rerun()
 
@@ -274,9 +330,8 @@ def login_page():
 # MODERN SIGNUP PAGE
 # -------------------------------------------------------------------
 def signup_page():
-    set_bg_image("image3.jpg",overlay=False)
-    st.markdown("<h1 style='text-align:center;'>📝 Create Account</h1>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align:center;color:red;'>Signup To  Stock Trend Analysis WebApp</h4>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align:center;'> Create Account</h1>", unsafe_allow_html=True)
+    #st.markdown("<h4 style='text-align:center;color:red;'>Signup To  Stock Trend Analysis WebApp</h4>", unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
@@ -495,18 +550,27 @@ def generate_recommendation(df, predictions):
 # MAIN APP
 # -------------------------------------------------------------------
 def trend_app():
-    # set_bg_image("image1.png",overlay=True)
     # Header Section
     st.markdown('<h1 class="title">🚀 Stock Trend Analysis Pro</h1>', unsafe_allow_html=True)
     st.markdown('<p style="text-align: center; font-size: 1.2em; color: rgba(255,255,255,0.8); margin-bottom: 30px;">Advanced AI-Powered Stock Analysis & Trading Signals</p>', unsafe_allow_html=True)
     
     # Stock Selection Section
-    st.markdown('<div class="metric-card">', unsafe_allow_html=True)
+    st.markdown('<div class="metric-card>', unsafe_allow_html=True)
     col1, col2, col3 = st.columns([2, 1, 1])
     
     with col1:
         st.markdown("### 📈 Select Stock")
-        stock = st.selectbox("Stock Symbol", ("AAPL", "GOOG", "MSFT", "TSLA", "AMZN", "NVDA", "META", "NFLX", "AMD", "CRM", "ORCL", "INTC", "CSCO", "ADBE", "PYPL", "UBER", "SPOT", "SQ", "SHOP", "COIN"), label_visibility="collapsed")
+        st.markdown("""
+<style>
+div[data-baseweb="select"] > div {
+    background-color: #262730;
+    border-radius: 10px;
+    # padding: 5px;
+                    color: white;
+}
+</style>
+""", unsafe_allow_html=True)
+        stock = st.selectbox(" Stock Symbol", ("AAPL", "GOOG", "MSFT", "TSLA", "AMZN", "NVDA", "META", "NFLX", "AMD", "CRM", "ORCL", "INTC", "CSCO", "ADBE", "PYPL", "UBER", "SPOT", "SQ", "SHOP", "COIN"), label_visibility="collapsed")
     
     # Load data immediately after stock selection
     df = load_data(stock)
@@ -524,7 +588,7 @@ def trend_app():
         st.markdown("### 📅 Data Range")
         st.metric("", f"{len(df)} Days", f"Since {df['Date'].min().strftime('%Y')}")
     
-        st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
     
     # Quick Stats Row
     st.markdown('<div class="metric-card">', unsafe_allow_html=True)
@@ -875,7 +939,7 @@ def trend_app():
     # ===============================================================
     # 🚀 AI PREDICTIONS & SIGNALS 
     # ===============================================================
-    with tab6:
+        with tab6:
 
             left, center, right = st.columns([0.1,3,0.1])
 
@@ -1005,7 +1069,7 @@ def trend_app():
                         use_container_width=True
                     )
         
-                    st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
     # ===============================================================
     # ℹ️ ABOUT & HELP
     # ===============================================================
@@ -1045,20 +1109,25 @@ def trend_app():
         
         st.markdown("---")
         
-        st.markdown("#### 👥 Meet the Founder")
-        col1, col2, col3 = st.columns([0.5,2,0.5])
-
+        st.markdown("#### 👥 Meet the Founders")
+        st.markdown("### 👨‍💼 Founder")
+        
+        col1, col2, col3 = st.columns([1,2,1])
+        
         with col2:
             st.markdown("""
-            <div style='text-align: center; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px;'>
-                <h3>Chirag Gupta</h3>
-                <a href="https://www.linkedin.com/in/chirag1542" target="_blank" style="text-decoration:none; color:#0A66C2; font-size:18px;">
-                    <i class="fab fa-linkedin"></i> Connect on LinkedIn
-                </a>
+            <div style="
+                text-align: center; 
+                background: rgba(255,255,255,0.9); 
+                padding: 30px; 
+                border-radius: 15px;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            ">
+                <h2 style='color:#2c3e50;'>Chirag Gupta</h2>
             </div>
             """, unsafe_allow_html=True)
-
         
+        st.markdown("---")
         st.markdown("---")
         
         st.markdown("#### ⚠️ Important Disclaimer")
@@ -1073,12 +1142,14 @@ def trend_app():
         </div>
         """, unsafe_allow_html=True)
     # Footer
-    st.markdown('<div class="footer">', unsafe_allow_html=True)
+    # st.markdown('<div class="footer">', unsafe_allow_html=True)
     st.markdown("""
+                <hr/>\
+                <br/>
     <div style='text-align: center; color: rgba(255,255,255,0.7);'>
         <h3 style='margin-bottom: 10px;'>🚀 Stock Trend Analysis Pro</h3>
         <p><strong>Powered by AI & Advanced Technical Analysis</strong></p>
-        <p>Built by Chirag Gupta</p>
+        <p>Built by Chirag Gupta </p>
         <p style='font-size: 0.9em; margin-top: 15px;'>⚠️ <em>Disclaimer: This tool is for educational purposes only. Not financial advice. Always do your own research.</em></p>
         <p style='font-size: 0.8em; margin-top: 10px;'>Data provided by Yahoo Finance | Last updated: {current_date}</p>
     </div>
