@@ -208,6 +208,71 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<style>
+
+/* Background */
+.stApp {
+    background: linear-gradient(135deg, #0a192f, #112240, #1c3d5a);
+    overflow: hidden;
+    color: #e6f1ff;
+}
+
+/* Snow Container */
+.snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Snow Particles */
+.snow span {
+    position: absolute;
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+/* Falling + Dissolve Animation */
+@keyframes fall {
+    0% {
+        transform: translateY(-10px) scale(1);
+        opacity: 0.9;
+    }
+    70% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+</style>
+
+<div class="snow">
+    <!-- Generate multiple snow particles -->
+    <span style="left:5%; animation-duration:10s; animation-delay:0s;"></span>
+    <span style="left:15%; animation-duration:12s; animation-delay:2s;"></span>
+    <span style="left:25%; animation-duration:8s; animation-delay:1s;"></span>
+    <span style="left:35%; animation-duration:14s; animation-delay:3s;"></span>
+    <span style="left:45%; animation-duration:9s; animation-delay:2s;"></span>
+    <span style="left:55%; animation-duration:11s; animation-delay:4s;"></span>
+    <span style="left:65%; animation-duration:7s; animation-delay:1s;"></span>
+    <span style="left:75%; animation-duration:13s; animation-delay:3s;"></span>
+    <span style="left:85%; animation-duration:10s; animation-delay:2s;"></span>
+    <span style="left:95%; animation-duration:12s; animation-delay:5s;"></span>
+</div>
+
+""", unsafe_allow_html=True)
+
 # -------------------------------------------------------------------
 # USER DATABASE
 # -------------------------------------------------------------------
