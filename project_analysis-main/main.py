@@ -9,11 +9,15 @@ import numpy as np
 import os
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import MinMaxScaler
-import base64
+import os
 
 def set_bg_image(image_file):
-    with open(image_file, "rb") as f:
+    current_dir = os.path.dirname(__file__)   # current file folder
+    image_path = os.path.join(current_dir, image_file)
+
+    with open(image_path, "rb") as f:
         data = f.read()
+
     encoded = base64.b64encode(data).decode()
 
     page_bg = f"""
@@ -25,22 +29,9 @@ def set_bg_image(image_file):
         background-repeat: no-repeat;
         background-attachment: fixed;
     }}
-    
-    /* Optional: Add overlay for readability */
-    .stApp::before {{
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);  /* dark overlay */
-        z-index: -1;
-    }}
     </style>
     """
-    st.markdown(page_bg, unsafe_allow_html=True)    
-# -------------------------------------------------------------------
+    st.markdown(page_bg, unsafe_allow_html=True)# -------------------------------------------------------------------
 # PAGE CONFIG
 # -------------------------------------------------------------------
 st.set_page_config(
