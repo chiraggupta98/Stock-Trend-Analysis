@@ -454,7 +454,7 @@ def generate_recommendation(df, predictions):
 # MAIN APP
 # -------------------------------------------------------------------
 def trend_app():
-     set_bg_image("image1.png")
+    set_bg_image("image1.png")
     # Header Section
     st.markdown('<h1 class="title">🚀 Stock Trend Analysis Pro</h1>', unsafe_allow_html=True)
     st.markdown('<p style="text-align: center; font-size: 1.2em; color: rgba(255,255,255,0.8); margin-bottom: 30px;">Advanced AI-Powered Stock Analysis & Trading Signals</p>', unsafe_allow_html=True)
@@ -834,7 +834,7 @@ def trend_app():
     # ===============================================================
     # 🚀 AI PREDICTIONS & SIGNALS 
     # ===============================================================
-        with tab6:
+    with tab6:
 
             left, center, right = st.columns([0.1,3,0.1])
 
