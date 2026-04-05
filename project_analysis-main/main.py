@@ -34,7 +34,7 @@ def set_bg_image(image_file, overlay=True):
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(13, 31, 31, 15); /* LIGHT overlay */
+           background: rgba(144, 238, 144, 0.25);
             z-index: 0;
         }
         """
