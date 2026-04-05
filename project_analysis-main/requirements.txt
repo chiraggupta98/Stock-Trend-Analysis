@@ -1,0 +1,11 @@
+streamlit
+yfinance
+plotly
+pandas
+numpy
+scikit-learn
+scipy
+gspread
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
