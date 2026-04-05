@@ -208,7 +208,7 @@ if "page" not in st.session_state:
 # MODERN LOGIN PAGE
 # -------------------------------------------------------------------
 def login_page():
-     set_bg_image("image3.jpg")
+    set_bg_image("image3.jpg")
     st.markdown("<h1 style='text-align:center;'>🔐 Welcome to Stock Trend Analysis WebApp</h1>", unsafe_allow_html=True)
     # st.markdown("<h4 style='text-align:center;color:red;'>Login To  Stock Trend Analysis WebApp</h4>", unsafe_allow_html=True)
 
