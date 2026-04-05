@@ -11,7 +11,9 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import MinMaxScaler
 import os
 import base64
-
+st.markdown("""
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+""", unsafe_allow_html=True)
 def set_bg_image(image_file):
     current_dir = os.path.dirname(__file__)   # current file folder
     image_path = os.path.join(current_dir, image_file)
