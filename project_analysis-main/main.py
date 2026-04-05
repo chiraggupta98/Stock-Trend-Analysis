@@ -1112,6 +1112,8 @@ div[data-baseweb="select"] > div {
         st.markdown("#### 👥 Meet the Founders")
         st.markdown("### 👨‍💼 Founder")
         
+        st.markdown("### 👨‍💼 Founder")
+        
         col1, col2, col3 = st.columns([1,2,1])
         
         with col2:
@@ -1124,6 +1126,20 @@ div[data-baseweb="select"] > div {
                 box-shadow: 0 8px 20px rgba(0,0,0,0.1);
             ">
                 <h2 style='color:#2c3e50;'>Chirag Gupta</h2>
+        
+                <a href="https://www.linkedin.com/in/chirag1542" target="_blank" 
+                   style="
+                   text-decoration:none; 
+                   color:white; 
+                   background:#0A66C2; 
+                   padding:10px 20px; 
+                   border-radius:25px;
+                   display:inline-block;
+                   margin-top:10px;
+                   font-weight:bold;
+                ">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
             </div>
             """, unsafe_allow_html=True)
         
