@@ -1128,8 +1128,8 @@ div[data-baseweb="select"] > div {
            text-decoration:none; 
            color:white; 
            background: linear-gradient(90deg,#0A66C2,#0077B5);
-           padding:12px 22px; 
-           border-radius:30px;
+           padding:12px 12px; 
+           border-radius:15px;
            display:inline-block;
            margin-top:12px;
            font-weight:bold;
