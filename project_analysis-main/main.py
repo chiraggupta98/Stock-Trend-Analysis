@@ -297,6 +297,33 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
+st.markdown("""
+<style>
+
+/* Animated Gradient Background */
+.stApp {
+    background: linear-gradient(270deg, #0a192f, #112240, #1c3d5a, #0a192f);
+    background-size: 400% 400%;
+    animation: gradientWave 12s ease infinite;
+    color: #e6f1ff;
+}
+
+/* Animation Keyframes */
+@keyframes gradientWave {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 # -------------------------------------------------------------------
 # MODERN LOGIN PAGE
 # -------------------------------------------------------------------
