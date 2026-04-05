@@ -10,6 +10,7 @@ import os
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import MinMaxScaler
 import os
+import base64
 
 def set_bg_image(image_file):
     current_dir = os.path.dirname(__file__)   # current file folder
