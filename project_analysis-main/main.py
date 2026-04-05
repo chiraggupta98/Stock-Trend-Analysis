@@ -23,7 +23,7 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 # PAGE CONFIG
 # -------------------------------------------------------------------
 st.set_page_config(
-    page_title="📊 Stock Trend Analysis Pro",
+    page_title="📊 Stock Trend Analysis",
     layout="wide",
     page_icon="🚀",
     initial_sidebar_state="expanded"
@@ -300,7 +300,7 @@ st.markdown("""
 # MODERN LOGIN PAGE
 # -------------------------------------------------------------------
 def login_page():
-    st.markdown("<h1 style='text-align:center;'>Stock Trend Analysis Pro</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align:center;'>Stock Trend Analysis</h1>", unsafe_allow_html=True)
     # st.markdown("<h4 style='text-align:center;color:red;'>Login To  Stock Trend Analysis WebApp</h4>", unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns([1, 2, 1])
