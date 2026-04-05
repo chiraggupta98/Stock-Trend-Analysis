@@ -242,7 +242,7 @@ st.markdown("""
 /* FULL SCREEN BACKGROUND */
 .stApp {
     # background: linear-gradient(135deg, #0f172a, #020617, #020617);
-    background:rgba(31,13,13,34);
+    background:rgba(5,13,13,29);
     background-attachment: fixed;
 }
 
