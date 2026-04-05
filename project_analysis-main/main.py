@@ -1004,15 +1004,15 @@ def trend_app():
         st.markdown("---")
         
         st.markdown("#### 👥 Meet the Founder")
-        founder_col1 = st.columns(1)
-        
-        with founder_col1:
+        col1, col2, col3 = st.columns([0.5,2,0.5])
+
+        with col2:
             st.markdown("""
-            <div style='text-align: center; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;'>
-            <h3>Chirag Gupta</h3>
-            <a href="https://www.linkedin.com/in/your-profile" target="_blank" class="linkedin-icon">
-                <i class="fab fa-linkedin"></i>
-            </a>
+            <div style='text-align: center; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px;'>
+                <h3>Chirag Gupta</h3>
+                <a href="https://www.linkedin.com/in/your-profile" target="_blank" style="text-decoration:none; color:#0A66C2; font-size:18px;">
+                    <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                </a>
             </div>
             """, unsafe_allow_html=True)
 
