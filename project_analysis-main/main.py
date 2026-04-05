@@ -295,6 +295,107 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
+
+
+st.markdown("""
+<style>
+
+/* ===== MAIN BACKGROUND ===== */
+.stApp {
+    background: linear-gradient(135deg, #020617, #0a192f, #112240);
+    overflow: hidden;
+    color: #e6f1ff;
+}
+
+/* ===== GRAPH CONTAINER ===== */
+.sensex-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* SVG FULL SCREEN */
+.sensex-bg svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* ===== LINE STYLE ===== */
+.sensex-line {
+    fill: none;
+    stroke: #00ff99;
+    stroke-width: 2.5;
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    animation: riseLine 10s linear infinite;
+    filter: drop-shadow(0 0 10px #00ff99);
+}
+
+/* ===== AREA FILL ===== */
+.sensex-fill {
+    fill: rgba(0, 255, 153, 0.08);
+    animation: fadeFill 10s linear infinite;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes riseLine {
+    0% {
+        stroke-dashoffset: 1200;
+    }
+    50% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: -1200;
+    }
+}
+
+@keyframes fadeFill {
+    0% { opacity: 0; }
+    50% { opacity: 0.4; }
+    100% { opacity: 0; }
+}
+
+/* ===== KEEP UI ABOVE ===== */
+.stApp > div {
+    position: relative;
+    z-index: 1;
+}
+
+</style>
+
+<div class="sensex-bg">
+<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+
+    <!-- Area fill -->
+    <path class="sensex-fill"
+        d="M0,90 
+           Q15,70 30,65 
+           T50,55 
+           T70,40 
+           T85,25 
+           T100,15 
+           L100,100 L0,100 Z" />
+
+    <!-- Rising Line -->
+    <path class="sensex-line"
+        d="M0,90 
+           Q15,70 30,65 
+           T50,55 
+           T70,40 
+           T85,25 
+           T100,15" />
+
+</svg>
+</div>
+
+""", unsafe_allow_html=True)
 # -------------------------------------------------------------------
 # USER DATABASE
 # -------------------------------------------------------------------
