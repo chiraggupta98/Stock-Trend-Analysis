@@ -296,59 +296,71 @@ st.markdown("""
 
 """, unsafe_allow_html=True)
 
-
 st.markdown("""
 <style>
 
-/* ===== MAIN DARK BACKGROUND ===== */
+/* 🔥 REMOVE EVERYTHING */
+#MainMenu, header, footer {visibility: hidden;}
 .stApp {
-    background: #020617; /* pure dark */
+    background: #000;  /* pure dark */
     overflow: hidden;
-    color: #e6f1ff;
 }
 
-/* ===== GRAPH CONTAINER ===== */
-.chart-bg {
+/* 🧠 RESET ALL ELEMENTS */
+* {
+    box-shadow: none !important;
+}
+
+/* 📊 FULL SCREEN GRAPH */
+.graph-container {
     position: fixed;
-    width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
-    opacity: 0.6;   /* IMPORTANT: visible but not overpowering */
-    pointer-events: none;
+    width: 100%;
+    height: 100%;
     z-index: 0;
+    pointer-events: none;
 }
 
 /* SVG full screen */
-.chart-bg svg {
+.graph-container svg {
     width: 100%;
     height: 100%;
 }
 
-/* ===== LINE STYLE ===== */
-.chart-line {
+/* 📈 GLOWING LINE */
+.graph-line {
     fill: none;
-    stroke: #00ff99;
-    stroke-width: 2.5;
-    stroke-dasharray: 1200;
-    stroke-dashoffset: 1200;
-    animation: moveGraph 8s linear infinite;
-    filter: drop-shadow(0 0 8px #00ff99);
+    stroke: #00ffcc;
+    stroke-width: 3;
+    stroke-linecap: round;
+
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+
+    animation: draw 5s linear infinite;
+    filter: drop-shadow(0 0 15px #00ffcc);
 }
 
-/* ===== AREA BELOW GRAPH ===== */
-.chart-fill {
-    fill: rgba(0, 255, 153, 0.08);
+/* 📉 AREA BELOW GRAPH */
+.graph-fill {
+    fill: rgba(0,255,200,0.08);
 }
 
-/* ===== ANIMATION ===== */
-@keyframes moveGraph {
-    0% { stroke-dashoffset: 1200; }
-    50% { stroke-dashoffset: 0; }
-    100% { stroke-dashoffset: -1200; }
+/* ⚡ ANIMATION */
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 2000;
+    }
+    50% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: -2000;
+    }
 }
 
-/* ===== KEEP CONTENT ABOVE ===== */
+/* 🧾 KEEP YOUR APP ABOVE */
 .stApp > div {
     position: relative;
     z-index: 1;
@@ -356,31 +368,34 @@ st.markdown("""
 
 </style>
 
-<div class="chart-bg">
+<div class="graph-container">
 <svg viewBox="0 0 100 100" preserveAspectRatio="none">
 
-    <!-- Filled Area -->
-    <path class="chart-fill"
-        d="M0,85 
-           Q15,65 30,70 
-           T50,55 
-           T70,60 
-           T85,35 
-           T100,20 
+    <!-- AREA -->
+    <path class="graph-fill"
+        d="M0,95 
+           Q10,80 20,82 
+           T35,70 
+           T50,60 
+           T65,65 
+           T80,40 
+           T90,30
+           T100,15 
            L100,100 L0,100 Z" />
 
-    <!-- Main Graph Line -->
-    <path class="chart-line"
-        d="M0,85 
-           Q15,65 30,70 
-           T50,55 
-           T70,60 
-           T85,35 
-           T100,20" />
+    <!-- LINE -->
+    <path class="graph-line"
+        d="M0,95 
+           Q10,80 20,82 
+           T35,70 
+           T50,60 
+           T65,65 
+           T80,40 
+           T90,30
+           T100,15" />
 
 </svg>
 </div>
-
 """, unsafe_allow_html=True)
 # -------------------------------------------------------------------
 # USER DATABASE
