@@ -1110,39 +1110,38 @@ div[data-baseweb="select"] > div {
         st.markdown("---")
         
         st.markdown("#### 👥 Meet the Founders")
-        col1, col2, col3 = st.columns([1,2,1])
-        
-        with col2:
-            st.markdown("""
-            <div style="
-                text-align: center; 
-                background: rgba(255,255,255,0.1); 
-                padding: 25px; 
-                border-radius: 12px;
-                backdrop-filter: blur(8px);
-            ">
-                <h2 style='color:white;'>Chirag Gupta</h2>
-                <p style='color:#ccc;'>Founder</p>
-        
-              <a href="https://www.linkedin.com/in/chirag1542" target="_blank" 
-   style="
-   text-decoration:none; 
-   color:white; 
-   background: linear-gradient(90deg,#0A66C2,#0077B5);
-   padding:12px 22px; 
-   border-radius:30px;
-   display:inline-block;
-   margin-top:12px;
-   font-weight:bold;
-   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-">
-    🔗 Connect on LinkedIn
-</a>
-                    🔗 Connect on LinkedIn
-                </a>
-            </div>
-            """, unsafe_allow_html=True)
-        
+        st.markdown("### 👨‍💼 Founder")
+
+col1, col2, col3 = st.columns([1,2,1])
+
+with col2:
+    st.markdown("""
+    <div style="
+        text-align: center; 
+        background: rgba(255,255,255,0.1); 
+        padding: 25px; 
+        border-radius: 12px;
+        backdrop-filter: blur(8px);
+    ">
+        <h2 style='color:white;'>Chirag Gupta</h2>
+        <p style='color:#ccc;'>Founder</p>
+
+        <a href="https://www.linkedin.com/in/chirag1542" target="_blank" 
+           style="
+           text-decoration:none; 
+           color:white; 
+           background: linear-gradient(90deg,#0A66C2,#0077B5);
+           padding:12px 22px; 
+           border-radius:30px;
+           display:inline-block;
+           margin-top:12px;
+           font-weight:bold;
+           box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        ">
+            🔗 Connect on LinkedIn
+        </a>
+    </div>
+    """, unsafe_allow_html=True)
         st.markdown("---")
         
         st.markdown("#### ⚠️ Important Disclaimer")
