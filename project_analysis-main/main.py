@@ -275,62 +275,63 @@ st.markdown("""
 st.markdown("""
 <style>
 
-/* Background */
+/* ===== MAIN BACKGROUND ===== */
 .stApp {
     background: linear-gradient(135deg, #0a192f, #112240, #1c3d5a);
     overflow: hidden;
     color: #e6f1ff;
 }
 
-/* Chart Container */
+/* ===== MARKET CHART BACKGROUND ===== */
 .market-bg {
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    opacity: 0.2;
+    opacity: 0.35;  /* increase visibility */
     pointer-events: none;
+    z-index: 0;
 }
 
-/* SVG */
+/* SVG full screen */
 .market-bg svg {
     width: 100%;
     height: 100%;
 }
 
-/* Line Styles */
+/* ===== LINE STYLE ===== */
 .line {
     fill: none;
     stroke-width: 2;
-    stroke-dasharray: 600;
-    stroke-dashoffset: 600;
-    animation: moveChart 10s linear infinite;
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    animation: moveChart 12s linear infinite;
 }
 
 /* Bull (Green) */
 .bull {
     stroke: #00ff99;
-    filter: drop-shadow(0 0 6px #00ff99);
+    filter: drop-shadow(0 0 8px #00ff99);
 }
 
 /* Bear (Red) */
 .bear {
     stroke: #ff4d4d;
-    filter: drop-shadow(0 0 6px #ff4d4d);
+    filter: drop-shadow(0 0 8px #ff4d4d);
 }
 
-/* Animation */
+/* ===== ANIMATION ===== */
 @keyframes moveChart {
-    0% {
-        stroke-dashoffset: 600;
-    }
-    50% {
-        stroke-dashoffset: 0;
-    }
-    100% {
-        stroke-dashoffset: -600;
-    }
+    0% { stroke-dashoffset: 800; }
+    50% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -800; }
+}
+
+/* ===== KEEP UI ABOVE BACKGROUND ===== */
+.stApp > div {
+    position: relative;
+    z-index: 1;
 }
 
 </style>
@@ -338,17 +339,17 @@ st.markdown("""
 <div class="market-bg">
 <svg viewBox="0 0 100 100" preserveAspectRatio="none">
 
-    <!-- Bullish Uptrend -->
+    <!-- Strong Bull Trend -->
     <path class="line bull"
-        d="M0,80 Q20,60 40,50 T70,30 T100,20" />
+        d="M0,85 Q20,70 40,60 T70,40 T100,25" />
 
-    <!-- Bearish Downtrend -->
+    <!-- Strong Bear Trend -->
     <path class="line bear"
-        d="M0,30 Q20,50 40,60 T70,70 T100,80" />
+        d="M0,20 Q20,35 40,50 T70,65 T100,80" />
 
-    <!-- Mixed Market Line -->
+    <!-- Volatile Market -->
     <path class="line bull"
-        d="M0,60 Q25,20 50,70 T100,40" />
+        d="M0,70 Q15,20 35,75 T65,30 T100,60" />
 
 </svg>
 </div>
