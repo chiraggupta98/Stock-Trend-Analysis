@@ -1010,7 +1010,7 @@ def trend_app():
             st.markdown("""
             <div style='text-align: center; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px;'>
                 <h3>Chirag Gupta</h3>
-                <a href="https://www.linkedin.com/in/your-profile" target="_blank" style="text-decoration:none; color:#0A66C2; font-size:18px;">
+                <a href="https://www.linkedin.com/in/chirag1542" target="_blank" style="text-decoration:none; color:#0A66C2; font-size:18px;">
                     <i class="fab fa-linkedin"></i> Connect on LinkedIn
                 </a>
             </div>
