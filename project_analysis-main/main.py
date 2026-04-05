@@ -272,7 +272,6 @@ st.markdown("""
 # </div>
 
 # """, unsafe_allow_html=True)
-
 st.markdown("""
 <style>
 
@@ -284,71 +283,77 @@ st.markdown("""
 }
 
 /* Chart Container */
-.chart-bg {
+.market-bg {
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    opacity: 0.15; /* subtle effect */
+    opacity: 0.2;
     pointer-events: none;
 }
 
-/* SVG Styling */
-.chart-bg svg {
+/* SVG */
+.market-bg svg {
     width: 100%;
     height: 100%;
 }
 
-/* Animated Lines */
+/* Line Styles */
 .line {
     fill: none;
     stroke-width: 2;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: drawLine 8s linear infinite;
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: moveChart 10s linear infinite;
 }
 
-/* Different Colors */
-.line1 { stroke: #00ffff; }
-.line2 { stroke: #00ff99; }
-.line3 { stroke: #ff4d4d; }
+/* Bull (Green) */
+.bull {
+    stroke: #00ff99;
+    filter: drop-shadow(0 0 6px #00ff99);
+}
+
+/* Bear (Red) */
+.bear {
+    stroke: #ff4d4d;
+    filter: drop-shadow(0 0 6px #ff4d4d);
+}
 
 /* Animation */
-@keyframes drawLine {
+@keyframes moveChart {
     0% {
-        stroke-dashoffset: 1000;
+        stroke-dashoffset: 600;
     }
     50% {
         stroke-dashoffset: 0;
     }
     100% {
-        stroke-dashoffset: -1000;
+        stroke-dashoffset: -600;
     }
 }
 
 </style>
 
-<div class="chart-bg">
+<div class="market-bg">
 <svg viewBox="0 0 100 100" preserveAspectRatio="none">
 
-    <!-- Line 1 -->
-    <path class="line line1"
-        d="M0,80 Q20,20 40,60 T80,30 T100,50" />
+    <!-- Bullish Uptrend -->
+    <path class="line bull"
+        d="M0,80 Q20,60 40,50 T70,30 T100,20" />
 
-    <!-- Line 2 -->
-    <path class="line line2"
-        d="M0,60 Q25,40 50,70 T100,40" />
+    <!-- Bearish Downtrend -->
+    <path class="line bear"
+        d="M0,30 Q20,50 40,60 T70,70 T100,80" />
 
-    <!-- Line 3 -->
-    <path class="line line3"
-        d="M0,70 Q30,10 60,50 T100,20" />
+    <!-- Mixed Market Line -->
+    <path class="line bull"
+        d="M0,60 Q25,20 50,70 T100,40" />
 
 </svg>
 </div>
 
 """, unsafe_allow_html=True)
-
 # -------------------------------------------------------------------
 # USER DATABASE
 # -------------------------------------------------------------------
