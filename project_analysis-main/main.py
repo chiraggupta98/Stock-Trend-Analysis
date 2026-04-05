@@ -964,7 +964,7 @@ def trend_app():
                         use_container_width=True
                     )
         
-        st.markdown('</div>', unsafe_allow_html=True)
+                    st.markdown('</div>', unsafe_allow_html=True)
     # ===============================================================
     # ℹ️ ABOUT & HELP
     # ===============================================================
