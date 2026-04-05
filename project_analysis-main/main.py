@@ -231,6 +231,7 @@ def login_page():
 # MODERN SIGNUP PAGE
 # -------------------------------------------------------------------
 def signup_page():
+    set_bg_image("image3.jpg")
     st.markdown("<h1 style='text-align:center;'>📝 Create Account</h1>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align:center;color:red;'>Signup To  Stock Trend Analysis WebApp</h4>", unsafe_allow_html=True)
 
