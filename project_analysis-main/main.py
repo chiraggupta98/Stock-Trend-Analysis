@@ -193,7 +193,13 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
+st.markdown("""
+<style>
+.stApp {
+    background-color: rgba(13,31,31,35);  /* light green */
+}
+</style>
+""", unsafe_allow_html=True)
 # -------------------------------------------------------------------
 # USER DATABASE
 # -------------------------------------------------------------------
