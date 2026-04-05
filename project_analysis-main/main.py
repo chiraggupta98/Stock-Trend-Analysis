@@ -208,6 +208,71 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# st.markdown("""
+# <style>
+
+# /* Background */
+# .stApp {
+#     background: linear-gradient(135deg, #0a192f, #112240, #1c3d5a);
+#     overflow: hidden;
+#     color: #e6f1ff;
+# }
+
+# /* Snow Container */
+# .snow {
+#     position: fixed;
+#     top: 0;
+#     left: 0;
+#     width: 100%;
+#     height: 100%;
+#     pointer-events: none;
+# }
+
+# /* Snow Particles */
+# .snow span {
+#     position: absolute;
+#     display: block;
+#     width: 6px;
+#     height: 6px;
+#     background: white;
+#     border-radius: 50%;
+#     opacity: 0.8;
+#     animation: fall linear infinite;
+# }
+
+# /* Falling + Dissolve Animation */
+# @keyframes fall {
+#     0% {
+#         transform: translateY(-10px) scale(1);
+#         opacity: 0.9;
+#     }
+#     70% {
+#         opacity: 0.6;
+#     }
+#     100% {
+#         transform: translateY(100vh) scale(0.5);
+#         opacity: 0;
+#     }
+# }
+
+# </style>
+
+# <div class="snow">
+#     <!-- Generate multiple snow particles -->
+#     <span style="left:5%; animation-duration:10s; animation-delay:0s;"></span>
+#     <span style="left:15%; animation-duration:12s; animation-delay:2s;"></span>
+#     <span style="left:25%; animation-duration:8s; animation-delay:1s;"></span>
+#     <span style="left:35%; animation-duration:14s; animation-delay:3s;"></span>
+#     <span style="left:45%; animation-duration:9s; animation-delay:2s;"></span>
+#     <span style="left:55%; animation-duration:11s; animation-delay:4s;"></span>
+#     <span style="left:65%; animation-duration:7s; animation-delay:1s;"></span>
+#     <span style="left:75%; animation-duration:13s; animation-delay:3s;"></span>
+#     <span style="left:85%; animation-duration:10s; animation-delay:2s;"></span>
+#     <span style="left:95%; animation-duration:12s; animation-delay:5s;"></span>
+# </div>
+
+# """, unsafe_allow_html=True)
+
 st.markdown("""
 <style>
 
@@ -218,57 +283,68 @@ st.markdown("""
     color: #e6f1ff;
 }
 
-/* Snow Container */
-.snow {
+/* Chart Container */
+.chart-bg {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.15; /* subtle effect */
     pointer-events: none;
 }
 
-/* Snow Particles */
-.snow span {
-    position: absolute;
-    display: block;
-    width: 6px;
-    height: 6px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.8;
-    animation: fall linear infinite;
+/* SVG Styling */
+.chart-bg svg {
+    width: 100%;
+    height: 100%;
 }
 
-/* Falling + Dissolve Animation */
-@keyframes fall {
+/* Animated Lines */
+.line {
+    fill: none;
+    stroke-width: 2;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 8s linear infinite;
+}
+
+/* Different Colors */
+.line1 { stroke: #00ffff; }
+.line2 { stroke: #00ff99; }
+.line3 { stroke: #ff4d4d; }
+
+/* Animation */
+@keyframes drawLine {
     0% {
-        transform: translateY(-10px) scale(1);
-        opacity: 0.9;
+        stroke-dashoffset: 1000;
     }
-    70% {
-        opacity: 0.6;
+    50% {
+        stroke-dashoffset: 0;
     }
     100% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
+        stroke-dashoffset: -1000;
     }
 }
 
 </style>
 
-<div class="snow">
-    <!-- Generate multiple snow particles -->
-    <span style="left:5%; animation-duration:10s; animation-delay:0s;"></span>
-    <span style="left:15%; animation-duration:12s; animation-delay:2s;"></span>
-    <span style="left:25%; animation-duration:8s; animation-delay:1s;"></span>
-    <span style="left:35%; animation-duration:14s; animation-delay:3s;"></span>
-    <span style="left:45%; animation-duration:9s; animation-delay:2s;"></span>
-    <span style="left:55%; animation-duration:11s; animation-delay:4s;"></span>
-    <span style="left:65%; animation-duration:7s; animation-delay:1s;"></span>
-    <span style="left:75%; animation-duration:13s; animation-delay:3s;"></span>
-    <span style="left:85%; animation-duration:10s; animation-delay:2s;"></span>
-    <span style="left:95%; animation-duration:12s; animation-delay:5s;"></span>
+<div class="chart-bg">
+<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+
+    <!-- Line 1 -->
+    <path class="line line1"
+        d="M0,80 Q20,20 40,60 T80,30 T100,50" />
+
+    <!-- Line 2 -->
+    <path class="line line2"
+        d="M0,60 Q25,40 50,70 T100,40" />
+
+    <!-- Line 3 -->
+    <path class="line line3"
+        d="M0,70 Q30,10 60,50 T100,20" />
+
+</svg>
 </div>
 
 """, unsafe_allow_html=True)
