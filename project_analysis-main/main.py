@@ -211,70 +211,6 @@ st.markdown("""
 st.markdown("""
 <style>
 
-/* Background */
-.stApp {
-    background: linear-gradient(135deg, #0a192f, #112240, #1c3d5a);
-    overflow: hidden;
-    color: #e6f1ff;
-}
-
-/* Snow Container */
-.snow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-/* Snow Particles */
-.snow span {
-    position: absolute;
-    display: block;
-    width: 6px;
-    height: 6px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.8;
-    animation: fall linear infinite;
-}
-
-/* Falling + Dissolve Animation */
-@keyframes fall {
-    0% {
-        transform: translateY(-10px) scale(1);
-        opacity: 0.9;
-    }
-    70% {
-        opacity: 0.6;
-    }
-    100% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
-    }
-}
-
-</style>
-
-<div class="snow">
-    <!-- Generate multiple snow particles -->
-    <span style="left:5%; animation-duration:10s; animation-delay:0s;"></span>
-    <span style="left:15%; animation-duration:12s; animation-delay:2s;"></span>
-    <span style="left:25%; animation-duration:8s; animation-delay:1s;"></span>
-    <span style="left:35%; animation-duration:14s; animation-delay:3s;"></span>
-    <span style="left:45%; animation-duration:9s; animation-delay:2s;"></span>
-    <span style="left:55%; animation-duration:11s; animation-delay:4s;"></span>
-    <span style="left:65%; animation-duration:7s; animation-delay:1s;"></span>
-    <span style="left:75%; animation-duration:13s; animation-delay:3s;"></span>
-    <span style="left:85%; animation-duration:10s; animation-delay:2s;"></span>
-    <span style="left:95%; animation-duration:12s; animation-delay:5s;"></span>
-</div>
-
-""", unsafe_allow_html=True)
-st.markdown("""
-<style>
-
 /* ===== MAIN BACKGROUND ===== */
 .stApp {
     background: linear-gradient(135deg, #0a192f, #112240, #1c3d5a);
@@ -282,53 +218,68 @@ st.markdown("""
     color: #e6f1ff;
 }
 
-/* ===== MARKET CHART BACKGROUND ===== */
-.market-bg {
+/* ===== PARTICLE CONTAINER ===== */
+.sprinkles {
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    opacity: 0.35;  /* increase visibility */
     pointer-events: none;
     z-index: 0;
 }
 
-/* SVG full screen */
-.market-bg svg {
-    width: 100%;
-    height: 100%;
+/* ===== PARTICLES ===== */
+.sprinkles span {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    opacity: 0;
+    animation: floatRandom linear infinite;
 }
 
-/* ===== LINE STYLE ===== */
-.line {
-    fill: none;
-    stroke-width: 2;
-    stroke-dasharray: 800;
-    stroke-dashoffset: 800;
-    animation: moveChart 12s linear infinite;
+/* Different colors (market vibe) */
+.sprinkles span:nth-child(3n) {
+    width: 4px;
+    height: 4px;
+    background: #00ff99; /* green */
+    box-shadow: 0 0 8px #00ff99;
+}
+.sprinkles span:nth-child(3n+1) {
+    width: 5px;
+    height: 5px;
+    background: #00ccff; /* blue */
+    box-shadow: 0 0 8px #00ccff;
+}
+.sprinkles span:nth-child(3n+2) {
+    width: 4px;
+    height: 4px;
+    background: #ff4d4d; /* red */
+    box-shadow: 0 0 8px #ff4d4d;
 }
 
-/* Bull (Green) */
-.bull {
-    stroke: #00ff99;
-    filter: drop-shadow(0 0 8px #00ff99);
+/* ===== RANDOM FLOAT ANIMATION ===== */
+@keyframes floatRandom {
+    0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(50vh) scale(1.2);
+    }
+    80% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-10vh) scale(0.5);
+        opacity: 0;
+    }
 }
 
-/* Bear (Red) */
-.bear {
-    stroke: #ff4d4d;
-    filter: drop-shadow(0 0 8px #ff4d4d);
-}
-
-/* ===== ANIMATION ===== */
-@keyframes moveChart {
-    0% { stroke-dashoffset: 800; }
-    50% { stroke-dashoffset: 0; }
-    100% { stroke-dashoffset: -800; }
-}
-
-/* ===== KEEP UI ABOVE BACKGROUND ===== */
+/* ===== KEEP UI ABOVE ===== */
 .stApp > div {
     position: relative;
     z-index: 1;
@@ -336,22 +287,11 @@ st.markdown("""
 
 </style>
 
-<div class="market-bg">
-<svg viewBox="0 0 100 100" preserveAspectRatio="none">
-
-    <!-- Strong Bull Trend -->
-    <path class="line bull"
-        d="M0,85 Q20,70 40,60 T70,40 T100,25" />
-
-    <!-- Strong Bear Trend -->
-    <path class="line bear"
-        d="M0,20 Q20,35 40,50 T70,65 T100,80" />
-
-    <!-- Volatile Market -->
-    <path class="line bull"
-        d="M0,70 Q15,20 35,75 T65,30 T100,60" />
-
-</svg>
+<div class="sprinkles">
+""" + "".join([
+    f'<span style="left:{np.random.randint(0,100)}%; animation-duration:{np.random.randint(8,15)}s; animation-delay:{np.random.randint(0,10)}s;"></span>'
+    for _ in range(40)
+]) + """
 </div>
 
 """, unsafe_allow_html=True)
