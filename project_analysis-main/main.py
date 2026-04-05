@@ -1110,40 +1110,40 @@ div[data-baseweb="select"] > div {
         st.markdown("---")
         
         st.markdown("#### 👥 Meet the Founders")
-        st.markdown("### 👨‍💼 Founder")
         
         st.markdown("### 👨‍💼 Founder")
         
-        col1, col2, col3 = st.columns([1,2,1])
-        
-        with col2:
-            st.markdown("""
-            <div style="
-                text-align: center; 
-                background: rgba(255,255,255,0.9); 
-                padding: 30px; 
-                border-radius: 15px;
-                box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            ">
-                <h2 style='color:#2c3e50;'>Chirag Gupta</h2>
-        
-                <a href="https://www.linkedin.com/in/chirag1542" target="_blank" 
-                   style="
-                   text-decoration:none; 
-                   color:white; 
-                   background:#0A66C2; 
-                   padding:10px 20px; 
-                   border-radius:25px;
-                   display:inline-block;
-                   margin-top:10px;
-                   font-weight:bold;
-                ">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-            </div>
-            """, unsafe_allow_html=True)
-        
-        st.markdown("---")
+        st.markdown("#### 👨‍💼 Founder")
+
+col1, col2, col3 = st.columns([1,2,1])
+
+with col2:
+    st.markdown("""
+    <div style="
+        text-align: center; 
+        background: rgba(255,255,255,0.15); 
+        padding: 25px; 
+        border-radius: 12px;
+        backdrop-filter: blur(8px);
+    ">
+        <h2 style='color:white;'>Chirag Gupta</h2>
+
+        <a href="https://www.linkedin.com/in/chirag1542" target="_blank" 
+           style="
+           text-decoration:none; 
+           color:white; 
+           background:#0A66C2; 
+           padding:10px 18px; 
+           border-radius:25px;
+           display:inline-block;
+           margin-top:10px;
+           font-weight:bold;
+        ">
+            🔗 Connect on LinkedIn
+        </a>
+    </div>
+    """, unsafe_allow_html=True)
+    
         st.markdown("---")
         
         st.markdown("#### ⚠️ Important Disclaimer")
