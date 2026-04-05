@@ -58,7 +58,8 @@ def set_bg_image(image_file, overlay=True):
     </style>
     """
 
-    st.markdown(page_bg, unsafe_allow_html=True) -------------------------------------------------------------------
+    st.markdown(page_bg, unsafe_allow_html=True) 
+    
 # PAGE CONFIG
 # -------------------------------------------------------------------
 st.set_page_config(
