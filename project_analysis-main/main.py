@@ -941,7 +941,7 @@ div[data-baseweb="select"] > div {
     # ===============================================================
         with tab6:
 
-            left, center, right = st.columns([0.1,3,0.1])
+            left, center, right = st.columns([0.1,7,0.1])
 
             with center:
                 st.markdown("### 🚀 AI-Powered Trading Signals")
