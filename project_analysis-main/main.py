@@ -483,7 +483,7 @@ def trend_app():
         st.markdown("### 📅 Data Range")
         st.metric("", f"{len(df)} Days", f"Since {df['Date'].min().strftime('%Y')}")
     
-    st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
     
     # Quick Stats Row
     st.markdown('<div class="metric-card">', unsafe_allow_html=True)
