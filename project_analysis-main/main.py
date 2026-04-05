@@ -34,335 +34,254 @@ st.set_page_config(
 # # -------------------------------------------------------------------
 
 
-# st.markdown("""
-# <style>
-#     /* Main background and text colors */
-#     .main {
-#         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-#         color: white;
-#     }
+st.markdown("""
+<style>
+    /* Main background and text colors */
+    .main {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
     
-#     /* Sidebar styling */
-#     .sidebar .sidebar-content {
-#         background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
-#         color: white;
-#     }
+    /* Sidebar styling */
+    .sidebar .sidebar-content {
+        background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+        color: white;
+    }
     
-#     /* Title styling */
-#     .title {
-#         background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
-#         -webkit-background-clip: text;
-#         -webkit-text-fill-color: transparent;
-#         background-clip: text;
-#         font-size: 3.5em;
-#         font-weight: bold;
-#         text-align: center;
-#         margin-bottom: 20px;
-#         text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-#     }
+    /* Title styling */
+    .title {
+        background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 3.5em;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
     
-#     /* Card styling */
-#     .metric-card {
-#         # background: rgba(255, 255, 255, 0.95);
-#         # border-radius: 15px;
-#         # padding: 20px;
-#         margin: 10px 0;
-#         box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-#         border: 1px solid rgba(255,255,255,0.2);
-#         backdrop-filter: blur(10px);
-#     }
+    /* Card styling */
+    .metric-card {
+        # background: rgba(255, 255, 255, 0.95);
+        # border-radius: 15px;
+        # padding: 20px;
+        margin: 10px 0;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+        backdrop-filter: blur(10px);
+    }
     
-#     /* Button styling */
-#     .stButton>button {
-#         # background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
-#         color: white;
-#         border: none;
-#         border-radius: 25px;
-#         padding: 12px 30px;
-#         font-size: 16px;
-#         font-weight: bold;
-#         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-#         transition: all 0.3s ease;
-#     }
+    /* Button styling */
+    .stButton>button {
+        # background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+        color: white;
+        border: none;
+        border-radius: 25px;
+        padding: 12px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    }
     
-#     .stButton>button:hover {
-#         transform: translateY(-2px);
-#         box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-#     }
+    .stButton>button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
     
-#     /* Tab styling */
-#     .stTabs [data-baseweb="tab-list"] {
-#         background: rgba(255, 255, 255, 0.1);
-#         border-radius: 10px;
-#         padding: 5px;
-#     }
+    /* Tab styling */
+    .stTabs [data-baseweb="tab-list"] {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 5px;
+    }
     
-#     .stTabs [data-baseweb="tab"] {
-#         background: transparent;
-#         border-radius: 8px;
-#         color: white;
-#         font-weight: bold;
-#     }
+    .stTabs [data-baseweb="tab"] {
+        background: transparent;
+        border-radius: 8px;
+        color: white;
+        font-weight: bold;
+    }
     
-#     .stTabs [aria-selected="true"] {
-#         background: rgba(255, 255, 255, 0.2);
-#         color: white;
-#     }
+    .stTabs [aria-selected="true"] {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
     
-#     /* Selectbox styling */
-#     .stSelectbox > div > div {
-#         background: rgba(255, 255, 255, 0.9);
-#         border-radius: 10px;
-#         color:black;
-#         border: none;
-#     }
+    /* Selectbox styling */
+    .stSelectbox > div > div {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        color:black;
+        border: none;
+    }
     
-#     /* Slider styling */
-#     .stSlider > div > div > div > div {
-#         background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
-#     }
+    /* Slider styling */
+    .stSlider > div > div > div > div {
+        background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+    }
     
-#     /* Recommendation box styling */
-#     .recommendation-box {
-#         border-radius: 20px;
-#         padding: 30px;
-#         margin: 20px 0;
-#         text-align: center;
-#         border: 3px solid #333;
-#         box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-#         backdrop-filter: blur(10px);
-#     }
+    /* Recommendation box styling */
+    .recommendation-box {
+        border-radius: 20px;
+        padding: 30px;
+        margin: 20px 0;
+        text-align: center;
+        border: 3px solid #333;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        backdrop-filter: blur(10px);
+    }
     
-#     /* Success/Warning/Error colors */
-#     .success { background: linear-gradient(135deg, #4CAF50, #45a049); }
-#     .warning { background: linear-gradient(135deg, #FF9800, #F57C00); }
-#     .danger { background: linear-gradient(135deg, #f44336, #d32f2f); }
-#     .info { background: linear-gradient(135deg, #2196F3, #1976D2); }
+    /* Success/Warning/Error colors */
+    .success { background: linear-gradient(135deg, #4CAF50, #45a049); }
+    .warning { background: linear-gradient(135deg, #FF9800, #F57C00); }
+    .danger { background: linear-gradient(135deg, #f44336, #d32f2f); }
+    .info { background: linear-gradient(135deg, #2196F3, #1976D2); }
     
-#     /* Chart styling */
-#     .js-plotly-plot .plotly .modebar {
-#         background: rgba(255,255,255,0.8);
-#         border-radius: 5px;
-#     }
+    /* Chart styling */
+    .js-plotly-plot .plotly .modebar {
+        background: rgba(255,255,255,0.8);
+        border-radius: 5px;
+    }
     
-#     /* Footer styling */
-#     .footer {
-#         text-align: center;
-#         padding: 20px;
-#         background: rgba(0,0,0,0.3);
-#         border-radius: 10px;
-#         margin-top: 30px;
-#     }
+    /* Footer styling */
+    .footer {
+        text-align: center;
+        padding: 20px;
+        background: rgba(0,0,0,0.3);
+        border-radius: 10px;
+        margin-top: 30px;
+    }
 
-#     /* Login Header */
-# .login-header {
-#     text-align: center;
-#     margin-bottom: 30px;
-# }
+    /* Login Header */
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-# .login-header h1 {
-#     font-size: 48px;
-#     font-weight: 800;
-#     background: linear-gradient(90deg,#00F5A0,#00D9F5,#7B61FF,#FF4D6D);
-#     -webkit-background-clip: text;
-#     -webkit-text-fill-color: transparent;
-#     margin-bottom: 5px;
-# }
+.login-header h1 {
+    font-size: 48px;
+    font-weight: 800;
+    background: linear-gradient(90deg,#00F5A0,#00D9F5,#7B61FF,#FF4D6D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 5px;
+}
 
-# .login-header p {
-#     color: #9aa4b2;
-#     font-size: 18px;
-# }
+.login-header p {
+    color: #9aa4b2;
+    font-size: 18px;
+}
 
-# /* Login Card */
-# [data-testid="stForm"] {
-#     background: rgba(255,255,255,0.04);
-#     padding: 30px;
-#     border-radius: 16px;
-#     border: 1px solid rgba(255,255,255,0.08);
-#     backdrop-filter: blur(10px);
-#     box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-# }
+/* Login Card */
+[data-testid="stForm"] {
+    background: rgba(255,255,255,0.04);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
 
-# /* Input fields */
-# .stTextInput input {
-#     background-color: #262730 !important;
-#     border-radius: 10px !important;
-#     border: 1px solid #3a3f5c !important;
-#     color: white !important;
-# }
+/* Input fields */
+.stTextInput input {
+    background-color: #262730 !important;
+    border-radius: 10px !important;
+    border: 1px solid #3a3f5c !important;
+    color: white !important;
+}
 
-# /* Login button */
-# .stButton > button {
-#     # background: linear-gradient(90deg,#ff6b6b,#4ecdc4);
-#     border-radius: 30px;
-#     border: none;
-#     font-weight: bold;
-#     padding: 10px 25px;
-#     transition: 0.3s;
-# }
+/* Login button */
+.stButton > button {
+    # background: linear-gradient(90deg,#ff6b6b,#4ecdc4);
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    padding: 10px 25px;
+    transition: 0.3s;
+}
 
-# .stButton > button:hover {
-#     transform: translateY(-2px);
-#     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-# }
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
 
-# </style>
-# """, unsafe_allow_html=True)
-
-# st.markdown("""
-# <style>
-
-# /* ===== MAIN BACKGROUND ===== */
-# .stApp {
-#     background: linear-gradient(135deg, #0a192f, #112240, #1c3d5a);
-#     overflow: hidden;
-#     color: #e6f1ff;
-# }
-
-# /* ===== PARTICLE CONTAINER ===== */
-# .sprinkles {
-#     position: fixed;
-#     width: 100%;
-#     height: 100%;
-#     top: 0;
-#     left: 0;
-#     pointer-events: none;
-#     z-index: 0;
-# }
-
-# /* ===== PARTICLES ===== */
-# .sprinkles span {
-#     position: absolute;
-#     display: block;
-#     border-radius: 50%;
-#     opacity: 0;
-#     animation: floatRandom linear infinite;
-# }
-
-# /* Different colors (market vibe) */
-# .sprinkles span:nth-child(3n) {
-#     width: 4px;
-#     height: 4px;
-#     background: #00ff99; /* green */
-#     box-shadow: 0 0 8px #00ff99;
-# }
-# .sprinkles span:nth-child(3n+1) {
-#     width: 5px;
-#     height: 5px;
-#     background: #00ccff; /* blue */
-#     box-shadow: 0 0 8px #00ccff;
-# }
-# .sprinkles span:nth-child(3n+2) {
-#     width: 4px;
-#     height: 4px;
-#     background: #ff4d4d; /* red */
-#     box-shadow: 0 0 8px #ff4d4d;
-# }
-
-# /* ===== RANDOM FLOAT ANIMATION ===== */
-# @keyframes floatRandom {
-#     0% {
-#         transform: translateY(100vh) scale(1);
-#         opacity: 0;
-#     }
-#     20% {
-#         opacity: 0.8;
-#     }
-#     50% {
-#         transform: translateY(50vh) scale(1.2);
-#     }
-#     80% {
-#         opacity: 0.6;
-#     }
-#     100% {
-#         transform: translateY(-10vh) scale(0.5);
-#         opacity: 0;
-#     }
-# }
-
-# /* ===== KEEP UI ABOVE ===== */
-# .stApp > div {
-#     position: relative;
-#     z-index: 1;
-# }
-
-# </style>
-
-# <div class="sprinkles">
-# """ + "".join([
-#     f'<span style="left:{np.random.randint(0,100)}%; animation-duration:{np.random.randint(8,15)}s; animation-delay:{np.random.randint(0,10)}s;"></span>'
-#     for _ in range(40)
-# ]) + """
-# </div>
-
-# """, unsafe_allow_html=True)
+</style>
+""", unsafe_allow_html=True)
 
 st.markdown("""
 <style>
 
-/* 🔥 REMOVE EVERYTHING */
-#MainMenu, header, footer {visibility: hidden;}
+/* ===== MAIN BACKGROUND ===== */
 .stApp {
-    background: #000;  /* pure dark */
+    background: linear-gradient(135deg, #0a192f, #112240, #1c3d5a);
     overflow: hidden;
+    color: #e6f1ff;
 }
 
-/* 🧠 RESET ALL ELEMENTS */
-* {
-    box-shadow: none !important;
-}
-
-/* 📊 FULL SCREEN GRAPH */
-.graph-container {
+/* ===== PARTICLE CONTAINER ===== */
+.sprinkles {
     position: fixed;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
     pointer-events: none;
+    z-index: 0;
 }
 
-/* SVG full screen */
-.graph-container svg {
-    width: 100%;
-    height: 100%;
+/* ===== PARTICLES ===== */
+.sprinkles span {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    opacity: 0;
+    animation: floatRandom linear infinite;
 }
 
-/* 📈 GLOWING LINE */
-.graph-line {
-    fill: none;
-    stroke: #00ffcc;
-    stroke-width: 3;
-    stroke-linecap: round;
-
-    stroke-dasharray: 2000;
-    stroke-dashoffset: 2000;
-
-    animation: draw 5s linear infinite;
-    filter: drop-shadow(0 0 15px #00ffcc);
+/* Different colors (market vibe) */
+.sprinkles span:nth-child(3n) {
+    width: 4px;
+    height: 4px;
+    background: #00ff99; /* green */
+    box-shadow: 0 0 8px #00ff99;
+}
+.sprinkles span:nth-child(3n+1) {
+    width: 5px;
+    height: 5px;
+    background: #00ccff; /* blue */
+    box-shadow: 0 0 8px #00ccff;
+}
+.sprinkles span:nth-child(3n+2) {
+    width: 4px;
+    height: 4px;
+    background: #ff4d4d; /* red */
+    box-shadow: 0 0 8px #ff4d4d;
 }
 
-/* 📉 AREA BELOW GRAPH */
-.graph-fill {
-    fill: rgba(0,255,200,0.08);
-}
-
-/* ⚡ ANIMATION */
-@keyframes draw {
+/* ===== RANDOM FLOAT ANIMATION ===== */
+@keyframes floatRandom {
     0% {
-        stroke-dashoffset: 2000;
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
     }
     50% {
-        stroke-dashoffset: 0;
+        transform: translateY(50vh) scale(1.2);
+    }
+    80% {
+        opacity: 0.6;
     }
     100% {
-        stroke-dashoffset: -2000;
+        transform: translateY(-10vh) scale(0.5);
+        opacity: 0;
     }
 }
 
-/* 🧾 KEEP YOUR APP ABOVE */
+/* ===== KEEP UI ABOVE ===== */
 .stApp > div {
     position: relative;
     z-index: 1;
@@ -370,34 +289,13 @@ st.markdown("""
 
 </style>
 
-<div class="graph-container">
-<svg viewBox="0 0 100 100" preserveAspectRatio="none">
-
-    <!-- AREA -->
-    <path class="graph-fill"
-        d="M0,95 
-           Q10,80 20,82 
-           T35,70 
-           T50,60 
-           T65,65 
-           T80,40 
-           T90,30
-           T100,15 
-           L100,100 L0,100 Z" />
-
-    <!-- LINE -->
-    <path class="graph-line"
-        d="M0,95 
-           Q10,80 20,82 
-           T35,70 
-           T50,60 
-           T65,65 
-           T80,40 
-           T90,30
-           T100,15" />
-
-</svg>
+<div class="sprinkles">
+""" + "".join([
+    f'<span style="left:{np.random.randint(0,100)}%; animation-duration:{np.random.randint(8,15)}s; animation-delay:{np.random.randint(0,10)}s;"></span>'
+    for _ in range(40)
+]) + """
 </div>
+
 """, unsafe_allow_html=True)
 # -------------------------------------------------------------------
 # USER DATABASE
