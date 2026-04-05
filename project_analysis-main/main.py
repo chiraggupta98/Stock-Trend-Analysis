@@ -344,7 +344,7 @@ st.markdown("""
     left: -200px;
     width: 600px;
     height: 600px;
-    # background: radial-gradient(circle, rgba(0,255,200,0.15), transparent);
+    background: radial-gradient(circle, rgba(0,255,200,0.15), transparent);
     filter: blur(120px);
     z-index: -1;
 }
@@ -392,7 +392,8 @@ st.markdown("""
 
 /* Animated Gradient Background */
 .stApp {
-    background: linear-gradient(270deg, #0a192f, #112240, #1c3d5a, #0a192f);
+    # background: linear-gradient(270deg, #0a192f, #112240, #1c3d5a, #0a192f);
+    background:rgba(12,132,21,0.8);
     background-size: 400% 400%;
     animation: gradientWave 12s ease infinite;
     color: #e6f1ff;
