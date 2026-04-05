@@ -570,7 +570,7 @@ div[data-baseweb="select"] > div {
 }
 </style>
 """, unsafe_allow_html=True)
-        stock = st.selectbox(" Stock Symbol", (" "AAPL","MSFT","GOOG","AMZN","META","NVDA","TSLA",
+        stock = st.selectbox(" Stock Symbol", ("AAPL","MSFT","GOOG","AMZN","META","NVDA","TSLA",
         "ORCL","ADBE","CRM","INTC","CSCO","AMD","IBM",
 
         # Finance
@@ -607,7 +607,7 @@ div[data-baseweb="select"] > div {
         # Indian Stocks (if you want NSE/BSE via Yahoo Finance)
         "RELIANCE.NS","TCS.NS","INFY.NS","HDFCBANK.NS",
         "ICICIBANK.NS","SBIN.NS","BHARTIARTL.NS",
-        "LT.NS","HINDUNILVR.NS","ITC.NS""), label_visibility="collapsed")
+        "LT.NS","HINDUNILVR.NS","ITC.NS"), label_visibility="collapsed")
     
     # Load data immediately after stock selection
     df = load_data(stock)
