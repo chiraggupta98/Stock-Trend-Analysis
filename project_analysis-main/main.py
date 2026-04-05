@@ -1122,7 +1122,7 @@ div[data-baseweb="select"] > div {
                 backdrop-filter: blur(8px);
             ">
                 <h2 style='color:white;'>Chirag Gupta</h2>
-                <p style='color:#ccc;'>Software Developer</p>
+                <p style='color:#ccc;'>Software Developer at Great Eastern IDTech Pvt. Ltd.</p>
                 <a href="https://www.linkedin.com/in/chirag1542" target="_blank" 
            style="
            text-decoration:none; 
