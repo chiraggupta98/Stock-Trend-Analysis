@@ -14,14 +14,30 @@ import base64
 st.markdown("""
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 """, unsafe_allow_html=True)
-def set_bg_image(image_file):
-    current_dir = os.path.dirname(__file__)   # current file folder
+def set_bg_image(image_file, overlay=True):
+    current_dir = os.path.dirname(__file__)
     image_path = os.path.join(current_dir, image_file)
 
     with open(image_path, "rb") as f:
         data = f.read()
 
     encoded = base64.b64encode(data).decode()
+
+    # 👇 Overlay control
+    overlay_css = ""
+    if overlay:
+        overlay_css = """
+        .stApp::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* LIGHT overlay */
+            z-index: 0;
+        }
+        """
 
     page_bg = f"""
     <style>
@@ -32,27 +48,17 @@ def set_bg_image(image_file):
         background-repeat: no-repeat;
         background-attachment: fixed;
     }}
+
     {overlay_css}
 
-     .stApp::before {{
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(13,31 ,31,32 ); /* 👈 adjust this */
-        z-index: 0;
-    }}
-
-    /* Ensure content stays above overlay */
     .stApp > * {{
         position: relative;
         z-index: 1;
     }}
     </style>
     """
-    st.markdown(page_bg, unsafe_allow_html=True)# -------------------------------------------------------------------
+
+    st.markdown(page_bg, unsafe_allow_html=True) -------------------------------------------------------------------
 # PAGE CONFIG
 # -------------------------------------------------------------------
 st.set_page_config(
@@ -251,7 +257,7 @@ def login_page():
 # MODERN SIGNUP PAGE
 # -------------------------------------------------------------------
 def signup_page():
-    set_bg_image("image3.jpg")
+    set_bg_image("image3.jpg",overlay=False)
     st.markdown("<h1 style='text-align:center;'>📝 Create Account</h1>", unsafe_allow_html=True)
     st.markdown("<h4 style='text-align:center;color:red;'>Signup To  Stock Trend Analysis WebApp</h4>", unsafe_allow_html=True)
 
@@ -472,7 +478,7 @@ def generate_recommendation(df, predictions):
 # MAIN APP
 # -------------------------------------------------------------------
 def trend_app():
-    set_bg_image("image1.png")
+    set_bg_image("image1.png",overlay=True)
     # Header Section
     st.markdown('<h1 class="title">🚀 Stock Trend Analysis Pro</h1>', unsafe_allow_html=True)
     st.markdown('<p style="text-align: center; font-size: 1.2em; color: rgba(255,255,255,0.8); margin-bottom: 30px;">Advanced AI-Powered Stock Analysis & Trading Signals</p>', unsafe_allow_html=True)
