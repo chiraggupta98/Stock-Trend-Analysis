@@ -9,7 +9,37 @@ import numpy as np
 import os
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import MinMaxScaler
+import base64
+
+def set_bg_image(image_file):
+    with open(image_file, "rb") as f:
+        data = f.read()
+    encoded = base64.b64encode(data).decode()
+
+    page_bg = f"""
+    <style>
+    .stApp {{
+        background-image: url("data:image/png;base64,{encoded}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }}
     
+    /* Optional: Add overlay for readability */
+    .stApp::before {{
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);  /* dark overlay */
+        z-index: -1;
+    }}
+    </style>
+    """
+    st.markdown(page_bg, unsafe_allow_html=True)    
 # -------------------------------------------------------------------
 # PAGE CONFIG
 # -------------------------------------------------------------------
@@ -178,8 +208,9 @@ if "page" not in st.session_state:
 # MODERN LOGIN PAGE
 # -------------------------------------------------------------------
 def login_page():
-    st.markdown("<h1 style='text-align:center;'>🔐 Welcome Back</h1>", unsafe_allow_html=True)
-    st.markdown("<h4 style='text-align:center;color:red;'>Login To  Stock Trend Analysis WebApp</h4>", unsafe_allow_html=True)
+     set_bg_image("image3.png")
+    st.markdown("<h1 style='text-align:center;'>🔐 Welcome to Stock Trend Analysis WebApp</h1>", unsafe_allow_html=True)
+    # st.markdown("<h4 style='text-align:center;color:red;'>Login To  Stock Trend Analysis WebApp</h4>", unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
