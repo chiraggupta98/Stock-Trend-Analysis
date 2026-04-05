@@ -1125,21 +1125,6 @@ div[data-baseweb="select"] > div {
             ">
                 <h2 style='color:white;'>Chirag Gupta</h2>
                 <p style='color:#ccc;'>Founder</p>
-        
-                <a href="https://www.linkedin.com/in/chirag1542" target="_blank" 
-                   style="
-                   text-decoration:none; 
-                   color:white; 
-                   background: linear-gradient(90deg,#0A66C2,#0077B5);
-                   padding:12px 22px; 
-                   border-radius:30px;
-                   display:inline-block;
-                   margin-top:12px;
-                   font-weight:bold;
-                   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-                ">
-                    🔗 Connect on LinkedIn
-                </a>
             </div>
             """, unsafe_allow_html=True)
         st.markdown("---")
