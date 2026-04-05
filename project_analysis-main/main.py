@@ -1108,7 +1108,7 @@ div[data-baseweb="select"] > div {
             """)
         
         st.markdown("---")
-       st.markdown("### 👨‍💼 Founder")
+        st.markdown("### 👨‍💼 Founder")
         
         col1, col2, col3 = st.columns([1,2,1])
         
