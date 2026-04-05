@@ -1144,7 +1144,7 @@ with col2:
     </div>
     """, unsafe_allow_html=True)
     
-        st.markdown("---")
+        
         
         st.markdown("#### ⚠️ Important Disclaimer")
         st.markdown("""
