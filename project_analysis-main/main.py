@@ -32,6 +32,22 @@ def set_bg_image(image_file):
         background-repeat: no-repeat;
         background-attachment: fixed;
     }}
+     .stApp::before {{
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.75); /* 👈 adjust this */
+        z-index: 0;
+    }}
+
+    /* Ensure content stays above overlay */
+    .stApp > * {{
+        position: relative;
+        z-index: 1;
+    }}
     </style>
     """
     st.markdown(page_bg, unsafe_allow_html=True)# -------------------------------------------------------------------
