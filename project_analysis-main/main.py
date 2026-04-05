@@ -1160,7 +1160,7 @@ div[data-baseweb="select"] > div {
     <div style='text-align: center; color: rgba(255,255,255,0.7);'>
         <h3 style='margin-bottom: 10px;'>🚀 Stock Trend Analysis Pro</h3>
         <p><strong>Powered by AI & Advanced Technical Analysis</strong></p>
-        <p>Built with Chirag Gupta </p>
+        <p>Built by Chirag Gupta </p>
         <p style='font-size: 0.9em; margin-top: 15px;'>⚠️ <em>Disclaimer: This tool is for educational purposes only. Not financial advice. Always do your own research.</em></p>
         <p style='font-size: 0.8em; margin-top: 10px;'>Data provided by Yahoo Finance | Last updated: {current_date}</p>
     </div>
