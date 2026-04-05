@@ -324,6 +324,58 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<style>
+
+/* Main Animated Background */
+.stApp {
+    background: linear-gradient(270deg, 
+        #0a192f, 
+        #1f1c2c, 
+        #302b63, 
+        #24243e, 
+        #0f2027
+    );
+    background-size: 500% 500%;
+    animation: gradientFlow 20s ease infinite;
+    color: #e6f1ff;
+}
+
+/* Glow Overlay Effect */
+.stApp::before {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, 
+        rgba(0, 255, 255, 0.15), 
+        rgba(255, 0, 255, 0.12), 
+        rgba(0, 128, 255, 0.12), 
+        transparent 70%
+    );
+    animation: glowMove 15s linear infinite;
+    z-index: 0;
+}
+
+/* Smooth Gradient Movement */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating Glow Animation */
+@keyframes glowMove {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(10%, 10%); }
+    100% { transform: translate(0, 0); }
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 # -------------------------------------------------------------------
 # MODERN LOGIN PAGE
 # -------------------------------------------------------------------
