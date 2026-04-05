@@ -297,72 +297,58 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-
 st.markdown("""
 <style>
 
-/* ===== MAIN BACKGROUND ===== */
+/* ===== MAIN DARK BACKGROUND ===== */
 .stApp {
-    background: linear-gradient(135deg, #020617, #0a192f, #112240);
+    background: #020617; /* pure dark */
     overflow: hidden;
     color: #e6f1ff;
 }
 
 /* ===== GRAPH CONTAINER ===== */
-.sensex-bg {
+.chart-bg {
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    opacity: 0.25;
+    opacity: 0.6;   /* IMPORTANT: visible but not overpowering */
     pointer-events: none;
     z-index: 0;
 }
 
-/* SVG FULL SCREEN */
-.sensex-bg svg {
+/* SVG full screen */
+.chart-bg svg {
     width: 100%;
     height: 100%;
 }
 
 /* ===== LINE STYLE ===== */
-.sensex-line {
+.chart-line {
     fill: none;
     stroke: #00ff99;
     stroke-width: 2.5;
     stroke-dasharray: 1200;
     stroke-dashoffset: 1200;
-    animation: riseLine 10s linear infinite;
-    filter: drop-shadow(0 0 10px #00ff99);
+    animation: moveGraph 8s linear infinite;
+    filter: drop-shadow(0 0 8px #00ff99);
 }
 
-/* ===== AREA FILL ===== */
-.sensex-fill {
+/* ===== AREA BELOW GRAPH ===== */
+.chart-fill {
     fill: rgba(0, 255, 153, 0.08);
-    animation: fadeFill 10s linear infinite;
 }
 
 /* ===== ANIMATION ===== */
-@keyframes riseLine {
-    0% {
-        stroke-dashoffset: 1200;
-    }
-    50% {
-        stroke-dashoffset: 0;
-    }
-    100% {
-        stroke-dashoffset: -1200;
-    }
+@keyframes moveGraph {
+    0% { stroke-dashoffset: 1200; }
+    50% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -1200; }
 }
 
-@keyframes fadeFill {
-    0% { opacity: 0; }
-    50% { opacity: 0.4; }
-    100% { opacity: 0; }
-}
-
-/* ===== KEEP UI ABOVE ===== */
+/* ===== KEEP CONTENT ABOVE ===== */
 .stApp > div {
     position: relative;
     z-index: 1;
@@ -370,27 +356,27 @@ st.markdown("""
 
 </style>
 
-<div class="sensex-bg">
+<div class="chart-bg">
 <svg viewBox="0 0 100 100" preserveAspectRatio="none">
 
-    <!-- Area fill -->
-    <path class="sensex-fill"
-        d="M0,90 
-           Q15,70 30,65 
+    <!-- Filled Area -->
+    <path class="chart-fill"
+        d="M0,85 
+           Q15,65 30,70 
            T50,55 
-           T70,40 
-           T85,25 
-           T100,15 
+           T70,60 
+           T85,35 
+           T100,20 
            L100,100 L0,100 Z" />
 
-    <!-- Rising Line -->
-    <path class="sensex-line"
-        d="M0,90 
-           Q15,70 30,65 
+    <!-- Main Graph Line -->
+    <path class="chart-line"
+        d="M0,85 
+           Q15,65 30,70 
            T50,55 
-           T70,40 
-           T85,25 
-           T100,15" />
+           T70,60 
+           T85,35 
+           T100,20" />
 
 </svg>
 </div>
