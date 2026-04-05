@@ -1001,29 +1001,19 @@ def trend_app():
         
         st.markdown("---")
         
-        st.markdown("#### 👥 Meet the Founders")
-        founder_col1, founder_col2, founder_col3 = st.columns(3)
+        st.markdown("#### 👥 Meet the Founder")
+        founder_col1 = st.columns(1)
         
         with founder_col1:
             st.markdown("""
             <div style='text-align: center; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;'>
-            <h3>Arsh Agrawal</h3>
+            <h3>Chirag Gupta</h3>
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank" class="linkedin-icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
             </div>
             """, unsafe_allow_html=True)
-        
-        with founder_col2:
-            st.markdown("""
-            <div style='text-align: center; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;'>
-            <h3>Prajjwal Tiwari</h3>
-            </div>
-            """, unsafe_allow_html=True)
-        
-        with founder_col3:
-            st.markdown("""
-            <div style='text-align: center; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;'>
-            <h3>Tushar Gaur</h3>
-            </div>
-            """, unsafe_allow_html=True)
+
         
         st.markdown("---")
         
@@ -1044,7 +1034,7 @@ def trend_app():
     <div style='text-align: center; color: rgba(255,255,255,0.7);'>
         <h3 style='margin-bottom: 10px;'>🚀 Stock Trend Analysis Pro</h3>
         <p><strong>Powered by AI & Advanced Technical Analysis</strong></p>
-        <p>Built with ❤️ by Arsh Agrawal, Prajjwal Tiwari & Tushar Gaur</p>
+        <p>Built by Chirag Gupta</p>
         <p style='font-size: 0.9em; margin-top: 15px;'>⚠️ <em>Disclaimer: This tool is for educational purposes only. Not financial advice. Always do your own research.</em></p>
         <p style='font-size: 0.8em; margin-top: 10px;'>Data provided by Yahoo Finance | Last updated: {current_date}</p>
     </div>
