@@ -39,7 +39,7 @@ def set_bg_image(image_file):
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(255, 255, 255, 0.75); /* 👈 adjust this */
+        background: rgba(13,31 ,31,32 ); /* 👈 adjust this */
         z-index: 0;
     }}
 
