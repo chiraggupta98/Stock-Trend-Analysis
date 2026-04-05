@@ -1110,41 +1110,37 @@ div[data-baseweb="select"] > div {
         st.markdown("---")
         
         st.markdown("#### 👥 Meet the Founders")
+        col1, col2, col3 = st.columns([1,2,1])
         
-        st.markdown("### 👨‍💼 Founder")
+        with col2:
+            st.markdown("""
+            <div style="
+                text-align: center; 
+                background: rgba(255,255,255,0.1); 
+                padding: 25px; 
+                border-radius: 12px;
+                backdrop-filter: blur(8px);
+            ">
+                <h2 style='color:white;'>Chirag Gupta</h2>
+                <p style='color:#ccc;'>Founder</p>
         
-        st.markdown("#### 👨‍💼 Founder")
-
-col1, col2, col3 = st.columns([1,2,1])
-
-with col2:
-    st.markdown("""
-    <div style="
-        text-align: center; 
-        background: rgba(255,255,255,0.15); 
-        padding: 25px; 
-        border-radius: 12px;
-        backdrop-filter: blur(8px);
-    ">
-        <h2 style='color:white;'>Chirag Gupta</h2>
-
-        <a href="https://www.linkedin.com/in/chirag1542" target="_blank" 
-           style="
-           text-decoration:none; 
-           color:white; 
-           background:#0A66C2; 
-           padding:10px 18px; 
-           border-radius:25px;
-           display:inline-block;
-           margin-top:10px;
-           font-weight:bold;
-        ">
-            🔗 Connect on LinkedIn
-        </a>
-    </div>
-    """, unsafe_allow_html=True)
-    
+                <a href="https://www.linkedin.com/in/chirag1542" target="_blank" 
+                   style="
+                   text-decoration:none; 
+                   color:white; 
+                   background:#0A66C2; 
+                   padding:10px 18px; 
+                   border-radius:25px;
+                   display:inline-block;
+                   margin-top:10px;
+                   font-weight:bold;
+                ">
+                    🔗 Connect on LinkedIn
+                </a>
+            </div>
+            """, unsafe_allow_html=True)
         
+        st.markdown("---")
         
         st.markdown("#### ⚠️ Important Disclaimer")
         st.markdown("""
@@ -1165,7 +1161,7 @@ with col2:
     <div style='text-align: center; color: rgba(255,255,255,0.7);'>
         <h3 style='margin-bottom: 10px;'>🚀 Stock Trend Analysis Pro</h3>
         <p><strong>Powered by AI & Advanced Technical Analysis</strong></p>
-        <p>Built by Chirag Gupta </p>
+        <p>Built with Chirag Gupta </p>
         <p style='font-size: 0.9em; margin-top: 15px;'>⚠️ <em>Disclaimer: This tool is for educational purposes only. Not financial advice. Always do your own research.</em></p>
         <p style='font-size: 0.8em; margin-top: 10px;'>Data provided by Yahoo Finance | Last updated: {current_date}</p>
     </div>
