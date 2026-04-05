@@ -1110,8 +1110,8 @@ div[data-baseweb="select"] > div {
         st.markdown("---")
         
         st.markdown("#### 👥 Meet the Founders")
-        st.markdown("### 👨‍💼 Founder")
-
+       st.markdown("### 👨‍💼 Founder")
+        
         col1, col2, col3 = st.columns([1,2,1])
         
         with col2:
@@ -1141,7 +1141,7 @@ div[data-baseweb="select"] > div {
                     🔗 Connect on LinkedIn
                 </a>
             </div>
-    """, unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
         st.markdown("---")
         
         st.markdown("#### ⚠️ Important Disclaimer")
