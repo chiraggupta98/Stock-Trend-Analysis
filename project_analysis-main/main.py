@@ -328,6 +328,36 @@ st.markdown("""
 
 """, unsafe_allow_html=True)
 
+
+
+
+st.markdown("""
+<style>
+/* Glow effect for login/signup card */
+[data-testid="stForm"] {
+    background: rgba(255, 255, 255, 0.05); /* semi-transparent dark */
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0,255,200,0.6), 0 0 40px rgba(0,255,200,0.4), 0 0 60px rgba(0,255,200,0.2);
+    animation: glowPulse 2.5s ease-in-out infinite alternate;
+}
+
+/* Glow pulse animation */
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 10px rgba(0,255,200,0.4), 0 0 20px rgba(0,255,200,0.3), 0 0 30px rgba(0,255,200,0.2);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0,255,200,0.6), 0 0 50px rgba(0,255,200,0.4), 0 0 75px rgba(0,255,200,0.3);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0,255,200,0.4), 0 0 20px rgba(0,255,200,0.3), 0 0 30px rgba(0,255,200,0.2);
+    }
+}
+</style>
+""", unsafe_allow_html=True)
 # -------------------------------------------------------------------
 # USER DATABASE
 # -------------------------------------------------------------------
