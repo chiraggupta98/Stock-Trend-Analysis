@@ -68,7 +68,8 @@ st.markdown("""
 
     color: #00ffcc; /* main neon color */
     text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
-
+      -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     animation: neonPulse 1.8s ease-in-out infinite;
 }
 
