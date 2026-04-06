@@ -52,7 +52,7 @@ st.markdown("""
     .title {
         background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
         -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        # -webkit-text-fill-color: transparent;
         background-clip: text;
         font-size: 3.5em;
         font-weight: bold;
@@ -69,8 +69,8 @@ st.markdown("""
     
     #     color: #00ffcc; /* main neon color */
     #     text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
-    #       -webkit-background-clip: text;
-    #     -webkit-text-fill-color: transparent;
+    #      -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     # }
 
 @keyframes neonPulse {
