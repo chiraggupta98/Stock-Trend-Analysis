@@ -49,29 +49,29 @@ st.markdown("""
     }
     
     /* Title styling */
+    # .title {
+    #     background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
+    #     -webkit-background-clip: text;
+    #     -webkit-text-fill-color: transparent;
+    #     background-clip: text;
+    #     font-size: 3.5em;
+    #     font-weight: bold;
+    #     text-align: center;
+    #     margin-bottom: 20px;
+    #     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    # }
     .title {
-        background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
         font-size: 3.5em;
-        font-weight: bold;
+        font-weight: 800;
         text-align: center;
         margin-bottom: 20px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    
+        color: #00ffcc; /* main neon color */
+        text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+          -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: neonPulse 1.8s ease-in-out infinite;
     }
-    .title {
-    font-size: 3.5em;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 20px;
-
-    color: #00ffcc; /* main neon color */
-    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
-      -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: neonPulse 1.8s ease-in-out infinite;
-}
 
 @keyframes neonPulse {
     0% {
