@@ -440,12 +440,12 @@ st.markdown("""
     width: 200%;
     height: 200%;
     background: radial-gradient(circle, 
-        rgba(0, 255, 255, 0.15), 
-        rgba(255, 0, 255, 0.12), 
-        rgba(0, 128, 255, 0.12), 
+       rgba(0, 0, 0, 0.6),   /* dark core */
+        rgba(0, 0, 0, 0.3), 
+        rgba(0, 0, 0, 0.0) 70%, 
         transparent 70%
     );
-    animation: glowMove 15s linear infinite;
+    animation: glowMove 25s linear infinite;
     z-index: 0;
 }
 
