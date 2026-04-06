@@ -445,7 +445,7 @@ st.markdown("""
         rgba(0, 0, 0, 0.0) 70%, 
         transparent 70%
     );
-    animation: glowMove 25s linear infinite;
+    animation: glowMove 45s linear infinite;
     z-index: 0;
 }
 
