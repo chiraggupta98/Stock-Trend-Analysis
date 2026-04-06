@@ -238,6 +238,28 @@ st.markdown("""
 }
 
 </style>
+<style>
+/* Diagonal Neon Glow Overlay */
+.stApp::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(135deg, rgba(0,255,0,0.2), rgba(255,0,0,0.2));
+    filter: blur(80px);
+    transform: rotate(0deg);
+    animation: moveDiagonal 8s linear infinite;
+    z-index: 0;
+}
+
+@keyframes moveDiagonal {
+    0% { transform: translate(-100%, -100%) rotate(0deg); }
+    50% { transform: translate(100%, 100%) rotate(45deg); }
+    100% { transform: translate(-100%, -100%) rotate(0deg); }
+}
+</style>
 """, unsafe_allow_html=True)
 
 st.markdown("""
