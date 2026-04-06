@@ -791,7 +791,7 @@ def trend_app():
     st.markdown('<p style="text-align: center; font-size: 1.2em; color: rgba(255,255,255,0.8); margin-bottom: 30px;">Advanced AI-Powered Stock Analysis & Trading Signals</p>', unsafe_allow_html=True)
     
     # Stock Selection Section
-    st.markdown('<div class="metric-card>', unsafe_allow_html=True)
+    st.markdown('<div class="metric-card">', unsafe_allow_html=True)
     col1, col2, col3 = st.columns([2, 1, 1])
     
     with col1:
