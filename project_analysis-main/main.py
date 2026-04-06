@@ -332,29 +332,35 @@ st.markdown("""
 
 st.markdown("""
 <style>
-/* Bicolor Glow for login/signup card */
+/* Neon Glow Login/Signup Card */
 [data-testid="stForm"] {
-    background: rgba(255, 255, 255, 0.05); /* semi-transparent dark */
+    background: rgba(0,0,0,0.05); /* semi-transparent dark */
     padding: 30px;
     border-radius: 16px;
     border: 1px solid rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
     box-shadow: 
-        0 0 20px rgba(0,255,0,0.6),   /* green glow */
-        20px 0 40px rgba(255,0,0,0.4); /* red glow on the right */
-    animation: bicolorGlow 2.5s ease-in-out infinite alternate;
+        0 0 20px #00ffcc,   /* cyan glow */
+        20px 0 40px #ff00ff; /* pink/magenta glow */
+    animation: neonCardGlow 2.5s ease-in-out infinite alternate;
 }
 
-/* Bicolor Glow Animation */
-@keyframes bicolorGlow {
+/* Neon Glow Animation */
+@keyframes neonCardGlow {
     0% {
-        box-shadow: 0 0 15px rgba(0,255,0,0.4), 15px 0 30px rgba(255,0,0,0.3);
+        box-shadow: 0 0 15px #00ffcc, 15px 0 30px #ff00ff;
+    }
+    25% {
+        box-shadow: 0 0 20px #ff00ff, 20px 0 40px #7b61ff;
     }
     50% {
-        box-shadow: 0 0 25px rgba(0,255,0,0.6), 25px 0 50px rgba(255,0,0,0.5);
+        box-shadow: 0 0 25px #00ffff, 25px 0 50px #ff4d4d;
+    }
+    75% {
+        box-shadow: 0 0 20px #ff00ff, 20px 0 40px #00ffcc;
     }
     100% {
-        box-shadow: 0 0 15px rgba(0,255,0,0.4), 15px 0 30px rgba(255,0,0,0.3);
+        box-shadow: 0 0 15px #00ffcc, 15px 0 30px #ff00ff;
     }
 }
 </style>
