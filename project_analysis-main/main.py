@@ -60,6 +60,24 @@ st.markdown("""
         margin-bottom: 20px;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
+    .title {
+    font-size: 3.5em;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 20px;
+
+    color: #00ffcc;  /* main neon color */
+
+    /* 🔥 GLOW EFFECT */
+    text-shadow:
+        0 0 5px rgba(0,255,200,0.8),
+        0 0 10px rgba(0,255,200,0.7),
+        0 0 20px rgba(0,255,200,0.6),
+        0 0 40px rgba(0,255,200,0.5);
+
+    /* smooth animation */
+    animation: glowPulse 2s infinite alternate;
+}
     
     /* Card styling */
     .metric-card {
