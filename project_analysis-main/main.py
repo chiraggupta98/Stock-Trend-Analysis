@@ -297,6 +297,186 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
+
+
+st.markdown("""
+<style>
+
+/* ============================= */
+/* 🔥 MAIN DARK ANIMATED BACKGROUND */
+/* ============================= */
+.stApp {
+    background: linear-gradient(270deg, #000000, #050505, #0a0a0a, #050505);
+    background-size: 400% 400%;
+    animation: gradientFlow 18s ease infinite;
+    color: #e6f1ff;
+}
+
+/* Smooth gradient animation */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ============================= */
+/* 🌑 DARK MOVING GLOW (NO PINK) */
+/* ============================= */
+.stApp::before {
+    content: "";
+    position: fixed;
+    top: -40%;
+    left: -40%;
+    width: 180%;
+    height: 180%;
+    background: radial-gradient(circle, 
+        rgba(0,0,0,0.7), 
+        rgba(0,0,0,0.4), 
+        transparent 70%
+    );
+    animation: glowMove 25s linear infinite;
+    z-index: 0;
+}
+
+.stApp::after {
+    content: "";
+    position: fixed;
+    bottom: -40%;
+    right: -40%;
+    width: 180%;
+    height: 180%;
+    background: radial-gradient(circle, 
+        rgba(0,0,0,0.6), 
+        rgba(0,0,0,0.3), 
+        transparent 70%
+    );
+    animation: glowMoveReverse 30s linear infinite;
+    z-index: 0;
+}
+
+@keyframes glowMove {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(6%,6%); }
+    100% { transform: translate(0,0); }
+}
+
+@keyframes glowMoveReverse {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-6%,-6%); }
+    100% { transform: translate(0,0); }
+}
+
+/* ============================= */
+/* 📈 FAKE STOCK LINE BACKGROUND */
+/* ============================= */
+.stApp::marker {}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 0;
+    background: repeating-linear-gradient(
+        to right,
+        rgba(0,255,150,0.05) 0px,
+        rgba(0,255,150,0.05) 2px,
+        transparent 2px,
+        transparent 120px
+    );
+    animation: moveLines 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes moveLines {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-200px); }
+}
+
+/* ============================= */
+/* ✨ CARDS ANIMATION */
+/* ============================= */
+.metric-card {
+    background: rgba(255,255,255,0.04);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    transition: all 0.4s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+
+/* ============================= */
+/* 🔘 BUTTON ANIMATION */
+/* ============================= */
+.stButton>button {
+    background: #111;
+    color: white;
+    border-radius: 30px;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.stButton>button:hover {
+    transform: scale(1.05);
+    background: #222;
+}
+
+/* ============================= */
+/* 🧊 INPUTS */
+/* ============================= */
+.stTextInput input {
+    background-color: #111 !important;
+    color: white !important;
+    border: 1px solid #333 !important;
+}
+
+/* ============================= */
+/* 📊 SELECT BOX */
+/* ============================= */
+div[data-baseweb="select"] > div {
+    background-color: #111 !important;
+    color: white !important;
+}
+
+/* ============================= */
+/* 📑 TABS */
+/* ============================= */
+.stTabs [aria-selected="true"] {
+    background: #222 !important;
+}
+
+/* ============================= */
+/* ✨ FADE IN ANIMATION */
+/* ============================= */
+.block-container {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================= */
+/* 🖱️ SCROLLBAR */
+/* ============================= */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+}
+
+</style>
+""", unsafe_allow_html=True)
 # -------------------------------------------------------------------
 # USER DATABASE
 # -------------------------------------------------------------------
