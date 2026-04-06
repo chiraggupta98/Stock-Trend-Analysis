@@ -66,17 +66,28 @@ st.markdown("""
     text-align: center;
     margin-bottom: 20px;
 
-    color: #00ffcc;  /* main neon color */
+    color: #00ffcc; /* main neon color */
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
 
-    /* 🔥 GLOW EFFECT */
-    text-shadow:
-        0 0 5px rgba(0,255,200,0.8),
-        0 0 10px rgba(0,255,200,0.7),
-        0 0 20px rgba(0,255,200,0.6),
-        0 0 40px rgba(0,255,200,0.5);
+    animation: neonPulse 1.8s ease-in-out infinite;
+}
 
-    /* smooth animation */
-    animation: glowPulse 2s infinite alternate;
+@keyframes neonPulse {
+    0% {
+        text-shadow: 0 0 2px #00ffcc, 0 0 4px #00ffcc, 0 0 6px #00ffcc;
+    }
+    25% {
+        text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
+    }
+    50% {
+        text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff;
+    }
+    75% {
+        text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
+    }
+    100% {
+        text-shadow: 0 0 2px #00ffcc, 0 0 4px #00ffcc, 0 0 6px #00ffcc;
+    }
 }
     
     /* Card styling */
