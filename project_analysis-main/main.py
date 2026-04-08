@@ -606,6 +606,7 @@ def load_data(ticker):
     if isinstance(df.columns, pd.MultiIndex):
         df.columns = df.columns.get_level_values(0)
     df.reset_index(inplace=True)
+    df = df.dropna()
     return df
 
 # def load_data(ticker):
@@ -619,22 +620,31 @@ def load_data(ticker):
 # PRICE PREDICTION & TREND ANALYSIS
 # -------------------------------------------------------------------
 def predict_prices(df, days_ahead=30):
-    """Predict stock prices using Linear Regression"""
     df_temp = df.copy()
+
+    # 🔥 SAFETY CHECK
+    df_temp = df_temp.dropna(subset=['Close'])
+
+    if len(df_temp) < 10:
+        raise ValueError("Not enough data for prediction")
+
     df_temp['Days'] = np.arange(len(df_temp))
-    
+
     X = df_temp[['Days']].values
     y = df_temp['Close'].values
-    
+
     model = LinearRegression()
     model.fit(X, y)
-    
+
     last_day = X[-1][0]
     future_days = np.arange(last_day + 1, last_day + days_ahead + 1).reshape(-1, 1)
     predictions = model.predict(future_days)
-    
-    future_dates = pd.date_range(start=df_temp['Date'].max() + pd.Timedelta(days=1), periods=days_ahead)
-    
+
+    future_dates = pd.date_range(
+        start=df_temp['Date'].max() + pd.Timedelta(days=1),
+        periods=days_ahead
+    )
+
     return future_dates, predictions
 
 def analyze_trend(df):
