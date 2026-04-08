@@ -1223,7 +1223,7 @@ div[data-baseweb="select"] > div {
     # ===============================================================
     # 🚀 AI PREDICTIONS & SIGNALS 
     # ===============================================================
-    with tab6:
+        with tab6:
 
             left, center, right = st.columns([0.1,20,0.1])
 
