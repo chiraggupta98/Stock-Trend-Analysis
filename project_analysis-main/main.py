@@ -10,7 +10,9 @@ import os
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import MinMaxScaler
 import streamlit as st
+from streamlit_autorefresh import st_autorefresh
 
+st_autorefresh(interval=60000, key="datarefresh") 
 # Inject CSS to hide Streamlit's default header and menu
 hide_streamlit_style = """
 <style>
