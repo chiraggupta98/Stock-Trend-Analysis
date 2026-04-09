@@ -851,7 +851,7 @@ div[data-baseweb="select"] > div {
         "SPY","QQQ","DIA","VTI","ARKK",
 
         # Popular Global Stocks
-        "BABA","JD","TCEHY","SONY","NTDOY","Ola Electric Mobility Limited",
+        "BABA","JD","TCEHY","SONY","NTDOY","OLAELEC.NS",
 
         # Indian Stocks (if you want NSE/BSE via Yahoo Finance)
         "RELIANCE.NS","TCS.NS","INFY.NS","HDFCBANK.NS",
